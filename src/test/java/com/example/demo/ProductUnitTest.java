@@ -3,7 +3,9 @@ package com.example.demo;
 
 import java.util.HashMap;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,6 +24,14 @@ class ProductUnitTests {
 		Product productPurchase = producyByname.get(lorealShampoo.getName());
 
 		assertArrayEquals("Loreal brand".toCharArray(), productPurchase.getDescription().toCharArray());
+	}
+
+	@Tag("slow")
+	@Test
+	public void testDivide() {
+		assertThrows(ArithmeticException.class, () -> {
+			Integer.divideUnsigned(42, 0);
+		});
 	}
 
 }
